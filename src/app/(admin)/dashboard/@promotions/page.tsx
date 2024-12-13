@@ -1,6 +1,6 @@
 import React from 'react';
 import { getPromotions } from '../../../../lib/api';
-import SummaryTable from '../../../components/summary-table'
+import SummaryTable from '../../../components/summary-table';
 import SummaryTableHeader from '../../../components/summary-table-header';
 import SummaryTableCell from '../../../components/summary-table-cell';
 import DashboardCard from '../../../components/dashboard-card';
