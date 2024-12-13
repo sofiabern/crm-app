@@ -61,6 +61,11 @@ export default function CompanyForm({ onSubmit }: CompanyFormProps) {
   });
 
   const handleSubmit = async (values: CompanyFieldValues) => {
+    if (!categories || !countries) {
+      console.error('Categories or countries are undefined');
+      return; 
+    }
+  
     await mutateAsync({
       ...values,
       categoryTitle:
@@ -68,7 +73,7 @@ export default function CompanyForm({ onSubmit }: CompanyFormProps) {
       countryTitle:
         countries.find(({ id }) => id === values.countryId)?.title ?? '',
     });
-
+  
     if (onSubmit) {
       onSubmit(values);
     }
