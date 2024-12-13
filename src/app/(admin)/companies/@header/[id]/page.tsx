@@ -4,10 +4,11 @@ import getQueryClient from '../../../../../lib/utils/getQueryClient';
 import Header from '../../../../components/header';
 
 export interface PageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page(props: PageProps) {
+  const params = await props.params;
   const queryClient = getQueryClient();
 
   await queryClient.prefetchQuery({
